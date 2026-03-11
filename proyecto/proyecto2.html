@@ -1,12 +1,287 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Proyecto 1</title>
-    <link rel="stylesheet" href="../style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portfolio - Dario Idiart</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            width: 100%;
+            max-width: 800px;
+            padding: 40px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid #e94560;
+            margin-bottom: 20px;
+            object-fit: cover;
+        }
+        
+        h1 {
+            color: #1a1a2e;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        
+        .title {
+            color: #e94560;
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+        
+        .description {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 16px;
+        }
+        
+        .section {
+            margin-bottom: 35px;
+        }
+        
+        .section h2 {
+            color: #1a1a2e;
+            font-size: 26px;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #e94560;
+            padding-bottom: 8px;
+            display: inline-block;
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 15px;
+        }
+        
+        .skill {
+            background-color: #1a1a2e;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 15px;
+            font-weight: 500;
+            transition: transform 0.3s ease;
+        }
+        
+        .skill:hover {
+            background-color: #e94560;
+            transform: scale(1.05);
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .project-card {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #e94560;
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .project-card h3 {
+            color: #1a1a2e;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+        
+        .project-card p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .contact-info {
+            background-color: #f9f9f9;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .contact-item {
+            margin: 15px 0;
+            font-size: 18px;
+        }
+        
+        .contact-item a {
+            color: #e94560;
+            text-decoration: none;
+            font-weight: 500;
+            margin-left: 10px;
+        }
+        
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 35px;
+        }
+        
+        .btn {
+            flex: 1;
+            padding: 14px;
+            text-align: center;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-github {
+            background-color: #24292e;
+            color: white;
+        }
+        
+        .btn-github:hover {
+            background-color: #e94560;
+        }
+        
+        .btn-portfolio {
+            background-color: #1a1a2e;
+            color: white;
+        }
+        
+        .btn-portfolio:hover {
+            background-color: #e94560;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 28px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Proyecto 1</h1>
-    <p>Descripción breve de tu proyecto.</p>
-    <a href="../index.html">Volver al portafolio</a>
+    <div class="container">
+        <div class="header">
+            <img src="../images/perfil.jpg" alt="Foto de Dario" class="profile-img" onerror="this.src='https://via.placeholder.com/150'">
+            <h1>Dario Idiart</h1>
+            <div class="title">Desarrollador Web en Formación</div>
+        </div>
+        
+        <div class="description">
+            Este es mi portfolio personal, creado para mostrar mis proyectos y habilidades como desarrollador web. 
+            Me apasiona crear sitios modernos, funcionales y atractivos. Actualmente estoy aprendiendo HTML, 
+            CSS, JavaScript y Git.
+        </div>
+        
+        <div class="section">
+            <h2>🚀 Tecnologías</h2>
+            <div class="skills-container">
+                <span class="skill">HTML5</span>
+                <span class="skill">CSS3</span>
+                <span class="skill">JavaScript</span>
+                <span class="skill">Git</span>
+                <span class="skill">GitHub</span>
+                <span class="skill">VS Code</span>
+                <span class="skill">Responsive Design</span>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>💻 Proyectos Destacados</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Calculadora Web</h3>
+                    <p>Calculadora interactiva con operaciones básicas y diseño moderno. Desarrollada con HTML, CSS y JavaScript.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Lista de Tareas</h3>
+                    <p>Aplicación para organizar tareas con localStorage. Permite agregar, completar y eliminar tareas.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Portfolio Personal</h3>
+                    <p>Mi sitio web personal desarrollado con HTML, CSS y desplegado en GitHub Pages. Totalmente responsive.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>📫 Contacto</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    📧 <strong>Email:</strong> <a href="mailto:dario_id9@outlook.com">dario_id9@outlook.com</a>
+                </div>
+                <div class="contact-item">
+                    🐙 <strong>GitHub:</strong> <a href="https://github.com/dario222" target="_blank">github.com/dario222</a>
+                </div>
+                <div class="contact-item">
+                    🌐 <strong>Portfolio:</strong> <a href="https://dario222.github.io/mi-portfolio/" target="_blank">dario222.github.io/mi-portfolio</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="nav-buttons">
+            <a href="https://github.com/dario222/mi-portfolio" target="_blank" class="btn btn-github">📂 Ver Código en GitHub</a>
+            <a href="https://dario222.github.io/mi-portfolio/" class="btn btn-portfolio">🏠 Volver al Portfolio Principal</a>
+        </div>
+    </div>
+
+    <script>
+        // Pequeña mejora para cargar la imagen
+        const profileImg = document.querySelector('.profile-img');
+        profileImg.onerror = function() {
+            this.src = 'https://via.placeholder.com/150?text=Dario';
+        };
+    </script>
 </body>
 </html>
